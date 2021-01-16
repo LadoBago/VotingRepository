@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  voting-site:
+    image: voting-site:latest
+    container_name: voting-site
+    ports:
+      - 8082:80
+    depends_on: 
+      - voting-api
+  voting-api:
+    image: voting-api:latest
+    container_name: voting-api
+    ports:
+      - 8081:8080
+    environment:
+      - SPRING_APPLICATION_JSON={"spring":{"redis":{"port":"6379","host":"redis-db"}}}
+    depends_on:
+      - redis-db
+  redis-db:
+    image: redis:alpine3.12
+    ports:
+      - 6379:6379
+    container_name: redis-db
+  
+  
