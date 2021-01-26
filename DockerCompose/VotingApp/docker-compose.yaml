@@ -21,5 +21,15 @@ services:
     ports:
       - 6379:6379
     container_name: redis-db
+  postgres-db:
+    image: postgres:alpine
+    environment:
+      - POSTGRES_PASSWORD=Qwer1234
+    ports:
+      - 5432:5432
+  adminer:
+    image: adminer
+    ports:
+      - 8090:8080
   
   

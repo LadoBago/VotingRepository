@@ -1,3 +1,5 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { VoteComponent } from './vote.component';
@@ -8,7 +10,9 @@ describe('VoteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VoteComponent ]
+      declarations: [ VoteComponent ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      imports: [HttpClientTestingModule]
     })
     .compileComponents();
   });
