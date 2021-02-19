@@ -1,14 +1,14 @@
 version: "3.9"
 services:
   voting-site:
-    build: D:\Projects\VotingRepository\VotingApp3\
+    image: voting-site:latest
     container_name: voting-site
     ports:
       - 8082:80
     depends_on:
       - voting-api
   voting-api:
-    build: D:\Projects\VotingRepository\votingWebApi\
+    image: voting-api:latest
     container_name: voting-api
     ports:
       - 8081:8080
@@ -22,7 +22,7 @@ services:
       - 6379:6379
     container_name: redis-db
   voting-console:
-    build: D:\Projects\VotingRepository\votingConsole\
+    image: voting-console:latest
     container_name: voting-console
     depends_on:
       - postgres-db
